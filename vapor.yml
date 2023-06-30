@@ -1,0 +1,19 @@
+id: 19397
+name: laravel-silo
+environments:
+    production:
+        domain:
+            - "*.sihq.io"
+        memory: 1024
+        cli-memory: 512
+        runtime: docker
+        database: laravel-silo
+        storage: sihq-bp-staging-bucket
+        build:
+            - "COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev"
+            # - "npm ci --omit=dev --ignore-scripts && rm -rf node_modules"
+            - "php artisan event:cache"
+            - "php artisan vapor-ui:publish"
+        deploy:
+            - "php artisan migrate --force"
+            - "php artisan tenants:migrate --force"

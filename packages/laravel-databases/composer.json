@@ -1,0 +1,31 @@
+{
+    "name": "laravel/databases",
+    "description": "Laravel Databases",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Brad Martin",
+            "email": "bradley.r.martin@me.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^6.0|^7.0|^8.0",
+        "laravel/framework": "^6.0|^7.0|^8.0"
+    },
+    "autoload": {
+        "files": [
+            "./src/Helpers.php"
+        ],
+        "psr-4": {
+            "Laravel\\Databases\\": "./src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laravel\\Databases\\DatabaseServiceProvider"
+            ]
+        }
+    }
+}

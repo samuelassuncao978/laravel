@@ -1,0 +1,221 @@
+/* ./resources/css/app.css */
+@import 'charts.css/dist/charts.css';
+
+@import './pie-chart.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.turbolinks-progress-bar {
+    height: 2px;
+    @apply bg-blue-500;
+}
+
+input[type='radio']:not(:checked),
+input[type='checkbox']:not(:checked) {
+    background: transparent !important;
+}
+
+.private-field {
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23666666' fill-opacity='0.29' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+*[data-input='toggle'] input:checked + .checked {
+    opacity: 1;
+}
+*[data-input='toggle'] input:checked ~ .checked-peg {
+    transform: translateX(100%);
+}
+
+*[data-input='checkbox'] input:checked + .checked,
+*[data-input='radio'] input:checked + .checked {
+    display: flex;
+}
+
+*::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb:hover {
+    border-radius: 9px;
+    border: solid 6px transparent;
+    background-clip: content-box;
+}
+
+*::-webkit-scrollbar {
+    height: 18px;
+    width: 18px;
+}
+
+*::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+    background-color: #666;
+}
+.scrollbar {
+    overflow-y: overlay;
+}
+
+.scroll-shadow:after {
+    content: '';
+    display: none;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 10px;
+    z-index: 20;
+
+    background: radial-gradient(farthest-side at 50% 100%, rgba(34, 34, 34, 0.2), rgba(0, 0, 0, 0)) 0 100%;
+
+    position: absolute;
+}
+.scroll-shadow:before {
+    content: '';
+    display: none;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 10px;
+    background: radial-gradient(farthest-side at 50% 0, rgba(34, 34, 34, 0.2), rgba(0, 0, 0, 0));
+    position: absolute;
+    z-index: 20;
+}
+.scroll-shadow.off-top:before {
+    display: block;
+}
+.scroll-shadow.off-bottom:after {
+    display: block;
+}
+.bg-preview {
+    background-image: url("data:image/svg+xml,%3Csvg width='84' height='48' viewBox='0 0 84 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h12v6H0V0zm28 8h12v6H28V8zm14-8h12v6H42V0zm14 0h12v6H56V0zm0 8h12v6H56V8zM42 8h12v6H42V8zm0 16h12v6H42v-6zm14-8h12v6H56v-6zm14 0h12v6H70v-6zm0-16h12v6H70V0zM28 32h12v6H28v-6zM14 16h12v6H14v-6zM0 24h12v6H0v-6zm0 8h12v6H0v-6zm14 0h12v6H14v-6zm14 8h12v6H28v-6zm-14 0h12v6H14v-6zm28 0h12v6H42v-6zm14-8h12v6H56v-6zm0-8h12v6H56v-6zm14 8h12v6H70v-6zm0 8h12v6H70v-6zM14 24h12v6H14v-6zm14-8h12v6H28v-6zM14 8h12v6H14V8zM0 8h12v6H0V8z' fill='%23eeeeee' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* White Version */
+.pikaday-white {
+    @apply rounded;
+    @apply shadow-2xl;
+
+    --backgroundColor: #ffffff;
+    --textColor: #718096;
+    --currentDateTextColor: #3182ce;
+    --selectedDateBackgroundColor: #3182ce;
+    --selectedDateTextColor: #ffffff;
+
+    --labelTextColor: #4a5568; /* eg. May 2020 */
+    --weekDaysTextColor: #a0aec0; /* eg. Mo Tu We ....*/
+
+    background-color: var(--backgroundColor);
+
+    padding: 0.7rem;
+    z-index: 2000;
+    margin: 6px 0 0 0;
+
+    font-family: inherit;
+}
+
+.pikaday-white.is-hidden {
+    display: none;
+}
+
+.pikaday-white .pika-title {
+    padding: 0.2rem 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Next/Previous */
+.pikaday-white .pika-prev,
+.pikaday-white .pika-next {
+    position: absolute;
+    outline: none;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    top: 15px;
+    display: inline-block;
+    margin-top: 0;
+    cursor: pointer;
+    /* hide text using text-indent trick, using width value (it's enough) */
+    text-indent: -9999px;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+}
+.pikaday-white .pika-prev:hover,
+.pikaday-white .pika-next:hover {
+    opacity: 1;
+}
+.pikaday-white .pika-prev {
+    right: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23a0aec0'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 19l-7-7 7-7'%3E%3C/path%3E%3C/svg%3E");
+}
+.pikaday-white .pika-next {
+    right: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23a0aec0'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7'%3E%3C/path%3E%3C/svg%3E");
+}
+.pika-prev.is-disabled,
+.pika-next.is-disabled {
+    cursor: default;
+    opacity: 0.2;
+}
+
+.pikaday-white .pika-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding-right: 4px;
+    padding-left: 4px;
+    color: var(--labelTextColor);
+}
+
+/* Show Month & Year select */
+/* .pikaday-white .pika-select-month,
+.pikaday-white .pika-select-year {
+	display: none;
+} */
+
+.pikaday-white table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.pikaday-white table th {
+    width: 2.2em;
+    height: 2.2em;
+    font-weight: normal;
+    color: var(--weekDaysTextColor);
+    text-align: center;
+}
+.pikaday-white table th abbr {
+    text-decoration: none;
+}
+.pikaday-white table td {
+    padding: 1px;
+}
+.pikaday-white table td button {
+    width: 2.2em;
+    height: 2.2em;
+    text-align: center;
+    border-radius: 50%;
+}
+.pikaday-white table td button:hover {
+    border-radius: 50%;
+    background-color: var(--selectedDateBackgroundColor);
+}
+.pikaday-white table td.is-today button {
+    color: var(--currentDateTextColor);
+}
+.pikaday-white table td.is-selected button {
+    background-color: var(--selectedDateBackgroundColor);
+}
+
+.pikaday-white table td button {
+    color: var(--textColor);
+}
+.pikaday-white table td button:hover,
+.pikaday-white table td.is-selected button,
+.pikaday-white table td.is-selected button:hover {
+    color: var(--selectedDateTextColor);
+    border-radius: 50%;
+}

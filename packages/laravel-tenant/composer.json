@@ -1,0 +1,29 @@
+{
+    "name": "laravel/tenant",
+    "description": "Laravel Tenant",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Brad Martin",
+            "email": "bradley.r.martin@me.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^6.0|^7.0|^8.0",
+        "laravel/framework": "^6.0|^7.0|^8.0",
+        "justinrainbow/json-schema": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laravel\\Tenant\\": "./src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laravel\\Tenant\\TenantServiceProvider"
+            ]
+        }
+    }
+}

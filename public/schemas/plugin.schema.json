@@ -1,0 +1,68 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "format": "uri"
+        },
+        "version": {
+            "$ref": "#/definitions/semver",
+            "description": "The version of the plugin. Changes to your manifest should cause a version change. This version string must follow the semver standard (http://semver.org)."
+        },
+        "id": {
+            "type": "string",
+            "description": "A unique identifier for this plugin in reverse domain notation. E.g: com.company.plugin",
+            "maxLength": 64
+        },
+        "name": {
+            "type": "string",
+            "description": "A display name for the plugin.",
+            "maxLength": 30
+        },
+        "description": {
+            "type": "string",
+            "description": "The full description of the plugin. Maximum length is 4000 characters.",
+            "maxLength": 4000
+        },
+        "white-label": {
+            "type": "boolean",
+            "description": "A value indicating whether this plugin is white labelled.",
+            "default": false
+        },
+        "dependencies": {
+            "type": "object",
+            "description": "A list of dependencies for the plugin, Must contain a dependancy for com.constructr",
+            "uniqueItems": true
+        },
+        "webhooks": {
+            "type": "object",
+            "description": "A value indicating whether an instance of the tab's configuration can be updated by the user after creation.",
+            "additionalProperties": false,
+            "properties": {
+                "subscriptions": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "endpoint": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            }
+        }
+    },
+    "required": ["version", "id", "name", "description", "dependencies"],
+    "definitions": {
+        "semver": {
+            "type": "string",
+            "maxLength": 256,
+            "pattern": "^([0-9]|[1-9]+[0-9]*)\\.([0-9]|[1-9]+[0-9]*)\\.([0-9]|[1-9]+[0-9]*)$"
+        }
+    },
+    "dependencies": {
+        "module": {}
+    }
+}

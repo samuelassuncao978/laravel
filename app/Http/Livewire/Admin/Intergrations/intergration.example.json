@@ -1,0 +1,10 @@
+{
+    "$schema": "https://platform.lndo.site/schemas/intergration.schema.json",
+    "version": "1.0.0",
+    "id": "com.sihq.gateway",
+    "name": "test",
+    "description": "",
+    "dependencies": {
+        "com.sihq.platform": "1.0.1"
+    }
+}
